@@ -1,0 +1,365 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import { createPageUrl } from "@/utils";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { 
+  ArrowLeft,
+  Calendar,
+  Clock,
+  User,
+  Share2,
+  BookOpen,
+  Lightbulb,
+  Target,
+  CheckCircle,
+  Zap,
+  Brain,
+  TrendingUp
+} from "lucide-react";
+
+export default function BlogPostPromptEngineeringMastery() {
+  const promptLevels = [
+    {
+      level: "Beginner",
+      title: "Basic Commands",
+      example: "Write a blog post about AI.",
+      issue: "Too vague, generic results"
+    },
+    {
+      level: "Intermediate", 
+      title: "Specific Instructions",
+      example: "Write a 500-word blog post about AI applications in healthcare for a general audience.",
+      issue: "Better, but lacks context and style"
+    },
+    {
+      level: "Advanced",
+      title: "Contextual Prompts",
+      example: "You're a healthcare technology journalist writing for Modern Healthcare magazine. Write a 500-word article about AI applications in diagnostics. Focus on recent breakthroughs, include expert quotes, and maintain an optimistic but realistic tone. Target audience: healthcare executives.",
+      issue: "Great results, but still room for optimization"
+    },
+    {
+      level: "Expert",
+      title: "Prompt Engineering",
+      example: "ROLE: Healthcare technology journalist at Modern Healthcare magazine\nTASK: Write a 500-word article about AI in medical diagnostics\nCONTEXT: Recent FDA approvals of AI diagnostic tools, growing physician adoption\nAUDIENCE: Healthcare executives and decision-makers\nTONE: Professional, optimistic, data-driven\nSTRUCTURE: Hook, problem, solution, evidence, call-to-action\nCONSTRAINTS: Include 2-3 specific examples, at least one expert quote placeholder\nOUTPUT: Publication-ready article with compelling headline",
+      issue: "Professional-quality results every time"
+    }
+  ];
+
+  const frameworkTechniques = [
+    {
+      title: "CLEAR Framework",
+      description: "Context, Length, Examples, Audience, Role",
+      use: "Perfect for content creation and writing tasks"
+    },
+    {
+      title: "Chain-of-Thought",
+      description: "Break complex problems into logical steps",
+      use: "Ideal for problem-solving and analysis"
+    },
+    {
+      title: "Few-Shot Learning",
+      description: "Provide examples of desired output format",
+      use: "Great for consistent formatting and style"
+    },
+    {
+      title: "Iterative Refinement",
+      description: "Build and improve prompts through conversation",
+      use: "Best for complex, creative projects"
+    }
+  ];
+
+  const expertPrompt = `ROLE: You are a senior marketing strategist with 10+ years of experience in B2B SaaS companies.
+
+TASK: Create a comprehensive go-to-market strategy for a new AI-powered customer service platform.
+
+CONTEXT: 
+- Product: AI chatbot that handles 80% of customer inquiries automatically
+- Target market: Mid-market SaaS companies (50-500 employees)
+- Competitive landscape: Intercom, Zendesk, Freshworks
+- Budget: $500K for first 6 months
+- Timeline: Launch in Q2 2024
+
+AUDIENCE: Present this to the CEO and founding team for approval.
+
+STRUCTURE:
+1. Executive Summary (2-3 sentences)
+2. Market Analysis (size, trends, opportunity)
+3. Target Customer Profile (3 specific personas)
+4. Positioning & Messaging
+5. Channel Strategy (prioritized list)
+6. Budget Allocation
+7. Success Metrics & Timeline
+8. Risk Mitigation
+
+CONSTRAINTS:
+- Keep total length under 1500 words
+- Include specific numbers and metrics where possible
+- Provide 3 alternative positioning approaches
+- Address main competitive threats directly
+
+TONE: Professional, confident, data-driven but accessible
+
+OUTPUT FORMAT: 
+- Use headers and bullet points for readability
+- Include a one-page executive summary at the top
+- End with clear next steps and decision points`;
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <header className="bg-gradient-to-br from-slate-50 to-teal-50 py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Link to={createPageUrl("Blog")}>
+            <Button variant="outline" className="mb-8 border-2">
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Blog
+            </Button>
+          </Link>
+          
+          <div className="mb-6">
+            <Badge className="bg-teal-500 text-white px-3 py-1 mb-4">
+              Skills
+            </Badge>
+            
+            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
+              Prompt Engineering Tips: From Beginner to Expert
+            </h1>
+            
+            <div className="flex flex-wrap items-center space-x-6 text-gray-600">
+              <div className="flex items-center space-x-2">
+                <User className="w-4 h-4" />
+                <span>Alex Johnson</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Calendar className="w-4 h-4" />
+                <span>January 5, 2024</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Clock className="w-4 h-4" />
+                <span>10 min read</span>
+              </div>
+              <Button variant="ghost" size="sm">
+                <Share2 className="w-4 h-4 mr-2" />
+                Share
+              </Button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Article Content */}
+      <article className="py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="prose max-w-none">
+            <img 
+              src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=600&fit=crop"
+              alt="Prompt Engineering"
+              className="w-full h-64 md:h-80 object-cover rounded-xl shadow-lg mb-8"
+            />
+
+            <div className="text-lg text-gray-700 leading-relaxed space-y-6">
+              <p>
+                <strong>Prompt engineering is the highest-leverage skill you can learn in 2024.</strong> 
+                It's the difference between getting mediocre AI outputs that need heavy editing and 
+                receiving professional-quality results that you can use immediately.
+              </p>
+
+              <p>
+                After teaching prompt engineering to over 300 professionals, I've discovered that most 
+                people are using AI at about 20% of its potential. The difference between beginners and 
+                experts isn't just what they ask—it's how they ask it.
+              </p>
+
+              <blockquote className="border-l-4 border-teal-500 pl-6 italic text-xl text-gray-700 my-8">
+                "Learning advanced prompt engineering increased my productivity by 400%. I now accomplish 
+                in 2 hours what used to take me a full day." - Jennifer Park, Marketing Director
+              </blockquote>
+
+              <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">
+                The 4 Levels of Prompt Engineering
+              </h2>
+
+              <p>
+                Let me show you the exact progression from beginner to expert by using the same task 
+                across all four levels:
+              </p>
+            </div>
+
+            {/* Prompt Levels */}
+            <div className="space-y-8 my-12">
+              {promptLevels.map((level, index) => (
+                <Card key={index} className={`border-0 shadow-lg ${index === 3 ? 'ring-2 ring-teal-500' : ''}`}>
+                  <CardContent className="p-8">
+                    <div className="flex items-center space-x-4 mb-4">
+                      <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-bold ${
+                        index === 0 ? 'bg-red-500' : 
+                        index === 1 ? 'bg-yellow-500' : 
+                        index === 2 ? 'bg-blue-500' : 'bg-green-500'
+                      }`}>
+                        {index + 1}
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-slate-900">{level.level}: {level.title}</h3>
+                        <p className="text-gray-600">{level.issue}</p>
+                      </div>
+                    </div>
+                    <div className="bg-gray-50 rounded-lg p-4 border-l-4 border-teal-500">
+                      <p className="text-gray-800 font-mono text-sm whitespace-pre-wrap">{level.example}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            <div className="text-lg text-gray-700 leading-relaxed space-y-6">
+              <p>
+                Notice how the expert-level prompt is structured like a detailed brief you'd give to 
+                a professional consultant. This is the key insight: treat AI like you're hiring the 
+                world's best expert in any field.
+              </p>
+
+              <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">
+                The CLEAR Framework: Your Prompt Engineering Foundation
+              </h2>
+
+              <p>
+                Every expert prompt should include these five elements:
+              </p>
+
+              <div className="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-xl p-8 my-8">
+                <div className="grid md:grid-cols-1 gap-6">
+                  <div className="space-y-6">
+                    <div className="flex items-start space-x-4">
+                      <div className="w-10 h-10 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold">C</div>
+                      <div>
+                        <h3 className="text-lg font-bold text-slate-900">Context</h3>
+                        <p className="text-gray-700">What's the situation? What background does the AI need?</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-4">
+                      <div className="w-10 h-10 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold">L</div>
+                      <div>
+                        <h3 className="text-lg font-bold text-slate-900">Length</h3>
+                        <p className="text-gray-700">How long should the output be? Be specific.</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-4">
+                      <div className="w-10 h-10 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold">E</div>
+                      <div>
+                        <h3 className="text-lg font-bold text-slate-900">Examples</h3>
+                        <p className="text-gray-700">Show the AI what good looks like with examples.</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-4">
+                      <div className="w-10 h-10 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold">A</div>
+                      <div>
+                        <h3 className="text-lg font-bold text-slate-900">Audience</h3>
+                        <p className="text-gray-700">Who is this for? What's their background and needs?</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-4">
+                      <div className="w-10 h-10 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold">R</div>
+                      <div>
+                        <h3 className="text-lg font-bold text-slate-900">Role</h3>
+                        <p className="text-gray-700">What expert persona should the AI adopt?</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">
+                Advanced Prompt Engineering Techniques
+              </h2>
+
+              <p>
+                Once you master CLEAR, these advanced techniques will take your prompts to the 
+                professional level:
+              </p>
+            </div>
+
+            {/* Framework Techniques */}
+            <div className="grid md:grid-cols-2 gap-6 my-12">
+              {frameworkTechniques.map((technique, index) => (
+                <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <CardContent className="p-6">
+                    <div className="flex items-start space-x-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl flex items-center justify-center">
+                        <Brain className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-slate-900 mb-2">{technique.title}</h3>
+                        <p className="text-gray-600 mb-3">{technique.description}</p>
+                        <Badge className="bg-teal-100 text-teal-800">{technique.use}</Badge>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            <div className="text-lg text-gray-700 leading-relaxed space-y-6">
+              <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">
+                Real Expert Prompt Example
+              </h2>
+
+              <p>
+                Here's an actual prompt I used recently for a client project. Notice how it follows 
+                the CLEAR framework and includes specific constraints and desired output format:
+              </p>
+            </div>
+
+            {/* Expert Prompt Example */}
+            <div className="bg-slate-900 rounded-xl p-6 my-8 overflow-x-auto">
+              <pre className="text-green-400 text-sm leading-relaxed whitespace-pre-wrap">
+                {expertPrompt}
+              </pre>
+            </div>
+
+            <div className="text-lg text-gray-700 leading-relaxed space-y-6">
+              <p>
+                This prompt generated a 1,400-word go-to-market strategy that my client used with 
+                minimal edits. The total time investment? 5 minutes to write the prompt, 3 minutes 
+                for AI to respond.
+              </p>
+
+              <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">
+                Start Your Prompt Engineering Journey
+              </h2>
+
+              <p>
+                Ready to master prompt engineering? Start with the CLEAR framework and practice on 
+                your daily tasks. Within a week, you'll see dramatic improvements in AI output quality.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-r from-slate-900 to-slate-800">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold text-white mb-6">
+            Master Advanced Prompt Engineering
+          </h2>
+          <p className="text-xl text-gray-300 mb-8">
+            Learn the advanced techniques that separate prompt engineering experts from beginners.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white">
+              <Target className="w-5 h-5 mr-2" />
+              Book Prompt Engineering Session
+            </Button>
+            <Link to={createPageUrl("Blog")}>
+              <Button variant="outline" size="lg" className="border-2 border-white text-white hover:bg-white hover:text-slate-900">
+                Read More Articles
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
