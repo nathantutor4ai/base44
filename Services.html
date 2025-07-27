@@ -1,0 +1,315 @@
+
+import React from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { 
+  User, 
+  Users, 
+  Wrench, 
+  Calendar,
+  CheckCircle,
+  Clock,
+  DollarSign,
+  Star,
+  ArrowRight,
+  Target,
+  Code,
+  Brain,
+  Rocket
+} from "lucide-react";
+
+export default function Services() {
+  const services = [
+    {
+      icon: User,
+      title: "1-on-1 Personal Tutoring",
+      description: "Completely personalized AI education tailored to your goals, pace, and learning style.",
+      features: [
+        "Personalized curriculum design",
+        "Real-time feedback and guidance",
+        "Flexible scheduling (evenings/weekends)",
+        "Direct access via email/Slack",
+        "Career guidance and mentorship",
+        "Portfolio project development"
+      ],
+      pricing: "Contact for pricing",
+      duration: "60-90 minutes per session",
+      popular: true
+    },
+    {
+      icon: Users,
+      title: "Small Group Sessions",
+      description: "Learn alongside 2-4 other motivated professionals in collaborative group settings.",
+      features: [
+        "Peer learning and networking",
+        "Group projects and challenges",
+        "Cost-effective option",
+        "Structured curriculum path",
+        "Group discussions and Q&A",
+        "Shared resources and materials"
+      ],
+      pricing: "Contact for pricing",
+      duration: "90 minutes per session",
+      popular: false
+    },
+    {
+      icon: Wrench,
+      title: "Project-Based Assistance",
+      description: "Get expert help on your specific AI projects, from concept to deployment.",
+      features: [
+        "Code reviews and optimization",
+        "Architecture and design guidance",
+        "Debugging and troubleshooting",
+        "Performance optimization",
+        "Deployment and scaling advice",
+        "Technical documentation help"
+      ],
+      pricing: "Contact for pricing",
+      duration: "Flexible timing",
+      popular: false
+    }
+  ];
+
+  const curriculum = [
+    {
+      icon: Brain,
+      title: "AI Fundamentals",
+      topics: ["Machine Learning Basics", "Neural Networks", "Deep Learning", "AI Ethics & Bias"]
+    },
+    {
+      icon: Code,
+      title: "Practical Tools",
+      topics: ["ChatGPT & GPT Models", "Python for AI", "TensorFlow/PyTorch", "Hugging Face"]
+    },
+    {
+      icon: Target,
+      title: "Prompt Engineering",
+      topics: ["Advanced Prompting", "Chain-of-Thought", "Few-Shot Learning", "Prompt Optimization"]
+    },
+    {
+      icon: Rocket,
+      title: "Career Applications",
+      topics: ["AI in Your Industry", "Resume Enhancement", "Interview Prep", "Portfolio Building"]
+    }
+  ];
+
+  const testimonials = [
+    {
+      name: "David Kim",
+      role: "Software Developer → AI Engineer",
+      content: "The 1-on-1 sessions were game-changing. Nathan helped me transition from web development to AI engineering in just 4 months.",
+      service: "1-on-1 Personal Tutoring"
+    },
+    {
+      name: "Lisa Wang",
+      role: "Marketing Manager",
+      content: "The group sessions provided amazing networking opportunities while learning cutting-edge AI tools for marketing.",
+      service: "Small Group Sessions"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-teal-50 py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <Badge className="mb-6 bg-teal-100 text-teal-800 px-4 py-2 text-sm font-medium">
+              🎯 Tailored AI Education
+            </Badge>
+            
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-slate-900 to-slate-600 bg-clip-text text-transparent leading-tight">
+              Choose Your Learning Path
+            </h1>
+            
+            <p className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
+              Whether you prefer personalized 1-on-1 guidance, collaborative group learning, 
+              or project-specific help, we have the perfect solution for your AI education journey.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <Card key={index} className={`border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 relative ${service.popular ? 'ring-2 ring-teal-500' : ''}`}>
+                {service.popular && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <Badge className="bg-teal-500 text-white px-4 py-1">
+                      <Star className="w-3 h-3 mr-1" />
+                      Most Popular
+                    </Badge>
+                  </div>
+                )}
+                
+                <CardHeader className="text-center p-8 pb-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                    <service.icon className="w-8 h-8 text-white" />
+                  </div>
+                  <CardTitle className="text-2xl font-bold text-slate-900 mb-4">{service.title}</CardTitle>
+                  <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                </CardHeader>
+                
+                <CardContent className="p-8 pt-0">
+                  <div className="space-y-4 mb-8">
+                    {service.features.map((feature, fIndex) => (
+                      <div key={fIndex} className="flex items-start space-x-3">
+                        <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                        <span className="text-gray-700">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  <div className="border-t pt-6 space-y-4">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
+                        <Clock className="w-4 h-4 text-gray-500" />
+                        <span className="text-sm text-gray-600">{service.duration}</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <DollarSign className="w-4 h-4 text-gray-500" />
+                        <span className="text-sm font-medium text-slate-900">{service.pricing}</span>
+                      </div>
+                    </div>
+                    
+                    <Button className={`w-full ${service.popular ? 'bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white' : 'bg-slate-900 hover:bg-slate-800 text-white'}`}>
+                      <Calendar className="w-4 h-4 mr-2" />
+                      Book This Package
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Curriculum Overview */}
+      <section className="py-24 bg-gradient-to-br from-slate-50 to-teal-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+              What You'll Learn
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Comprehensive curriculum covering everything from fundamentals to advanced applications
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {curriculum.map((section, index) => (
+              <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <CardContent className="p-8 text-center">
+                  <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                    <section.icon className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-4">{section.title}</h3>
+                  <div className="space-y-2">
+                    {section.topics.map((topic, tIndex) => (
+                      <div key={tIndex} className="text-sm text-gray-600 bg-gray-50 rounded-lg px-3 py-2">
+                        {topic}
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+              Student Success Stories
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Real results from students who chose different learning paths
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="border-0 shadow-lg">
+                <CardContent className="p-8">
+                  <div className="flex items-center mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 text-amber-400 fill-current" />
+                    ))}
+                  </div>
+                  
+                  <p className="text-gray-700 mb-6 leading-relaxed text-lg">
+                    "{testimonial.content}"
+                  </p>
+                  
+                  <div className="border-t pt-6">
+                    <p className="font-bold text-slate-900 text-lg">{testimonial.name}</p>
+                    <p className="text-teal-600 font-medium">{testimonial.role}</p>
+                    <Badge className="mt-2 bg-teal-100 text-teal-800">
+                      {testimonial.service}
+                    </Badge>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Philosophy */}
+      <section className="py-24 bg-gradient-to-br from-slate-50 to-teal-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+            Transparent, Fair Pricing
+          </h2>
+          <p className="text-xl text-gray-600 mb-12 leading-relaxed">
+            Every student's situation is unique. I believe in personalized pricing that reflects 
+            your specific needs, goals, and budget. Let's discuss what works best for you.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8 text-left">
+            <div className="bg-white rounded-xl p-6 shadow-lg">
+              <CheckCircle className="w-8 h-8 text-teal-600 mb-4" />
+              <h3 className="font-bold text-slate-900 mb-2">No Hidden Fees</h3>
+              <p className="text-gray-600">What you see is what you pay. No surprise charges or additional costs.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-lg">
+              <CheckCircle className="w-8 h-8 text-teal-600 mb-4" />
+              <h3 className="font-bold text-slate-900 mb-2">Flexible Packages</h3>
+              <p className="text-gray-600">Pay per session or book packages. Choose what fits your budget and goals.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-lg">
+              <CheckCircle className="w-8 h-8 text-teal-600 mb-4" />
+              <h3 className="font-bold text-slate-900 mb-2">Money-Back Guarantee</h3>
+              <p className="text-gray-600">Not satisfied after your first session? Get a full refund, no questions asked.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24 bg-gradient-to-r from-slate-900 to-slate-800">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Ready to Start Learning?
+          </h2>
+          <p className="text-xl text-gray-300 mb-10 leading-relaxed">
+            Book a free 15-minute consultation to discuss your goals and find the perfect learning path.
+          </p>
+          
+          <Button size="lg" className="bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white px-8 py-6 text-lg shadow-xl">
+            <Calendar className="w-5 h-5 mr-2" />
+            Schedule Free Consultation
+          </Button>
+        </div>
+      </section>
+    </div>
+  );
+}
