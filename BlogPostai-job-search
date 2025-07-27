@@ -1,0 +1,445 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import { createPageUrl } from "@/utils";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { 
+  ArrowLeft,
+  Calendar,
+  Clock,
+  User,
+  Share2,
+  BookOpen,
+  Target,
+  TrendingUp,
+  CheckCircle,
+  Zap,
+  Users,
+  FileText
+} from "lucide-react";
+
+export default function BlogPostAiJobSearch() {
+  const strategies = [
+    {
+      icon: FileText,
+      title: "AI-Powered Resume Optimization",
+      description: "Use AI to analyze job descriptions and tailor your resume for maximum ATS compatibility and recruiter appeal."
+    },
+    {
+      icon: Target,
+      title: "Smart Job Matching",
+      description: "Leverage AI tools to find opportunities that perfectly match your skills, even in hidden job markets."
+    },
+    {
+      icon: Users,
+      title: "Intelligent Networking",
+      description: "Use AI to identify key connections, craft personalized outreach messages, and build meaningful professional relationships."
+    },
+    {
+      icon: Zap,
+      title: "Interview Preparation",
+      description: "Practice with AI interview simulators and get real-time feedback on your responses and presentation."
+    }
+  ];
+
+  const tools = [
+    { name: "ChatGPT", use: "Resume optimization, cover letters, interview prep" },
+    { name: "LinkedIn AI", use: "Smart job recommendations, networking insights" },
+    { name: "Grammarly", use: "Professional communication enhancement" },
+    { name: "Otter.ai", use: "Interview transcription and analysis" },
+    { name: "Crystal", use: "Personality insights for better communication" },
+    { name: "Jobscan", use: "ATS optimization and keyword matching" }
+  ];
+
+  const resumePrompt = `Act as an expert career coach and recruiter. I'm applying for a [JOB TITLE] position at [COMPANY]. Here's the job description: [PASTE JOB DESCRIPTION]
+
+Here's my current resume: [PASTE RESUME]
+
+Please help me:
+1. Identify the top 5 keywords/skills I should emphasize
+2. Suggest 3-5 specific achievements to highlight
+3. Recommend how to restructure my experience section
+4. Provide a tailored professional summary
+5. Point out any gaps I should address
+
+Make your suggestions specific and actionable.`;
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <header className="bg-gradient-to-br from-slate-50 to-teal-50 py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Link to={createPageUrl("Blog")}>
+            <Button variant="outline" className="mb-8 border-2">
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Blog
+            </Button>
+          </Link>
+          
+          <div className="mb-6">
+            <Badge className="bg-teal-500 text-white px-3 py-1 mb-4">
+              Career
+            </Badge>
+            
+            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
+              How to Job Search Using AI: Land Your Dream Role in 2024
+            </h1>
+            
+            <div className="flex flex-wrap items-center space-x-6 text-gray-600">
+              <div className="flex items-center space-x-2">
+                <User className="w-4 h-4" />
+                <span>Alex Johnson</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Calendar className="w-4 h-4" />
+                <span>January 10, 2024</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Clock className="w-4 h-4" />
+                <span>12 min read</span>
+              </div>
+              <Button variant="ghost" size="sm">
+                <Share2 className="w-4 h-4 mr-2" />
+                Share
+              </Button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Article Content */}
+      <article className="py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="prose max-w-none">
+            <img 
+              src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1200&h=600&fit=crop"
+              alt="AI Job Search"
+              className="w-full h-64 md:h-80 object-cover rounded-xl shadow-lg mb-8"
+            />
+
+            <div className="text-lg text-gray-700 leading-relaxed space-y-6">
+              <p>
+                <strong>The job search landscape has fundamentally changed.</strong> While others are still 
+                manually scrolling through job boards and sending generic applications, smart job seekers 
+                are leveraging AI to land interviews 3x faster and negotiate offers 25% higher than market rate.
+              </p>
+
+              <p>
+                After coaching over 200 professionals through successful career transitions, I've identified 
+                the exact AI-powered strategies that consistently separate successful candidates from the crowd. 
+                Here's your complete playbook for dominating the modern job search.
+              </p>
+
+              <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">
+                The AI Job Search Advantage
+              </h2>
+
+              <blockquote className="border-l-4 border-teal-500 pl-6 italic text-xl text-gray-700 my-8">
+                "I landed 3 interviews in my first week using these AI techniques. My previous job search 
+                took 6 months with zero callbacks." - Sarah Chen, Data Scientist
+              </blockquote>
+
+              <p>
+                AI doesn't just speed up your job search—it makes you a better candidate. Here's how smart 
+                professionals are using AI to gain unfair advantages:
+              </p>
+            </div>
+
+            {/* Strategies Grid */}
+            <div className="grid md:grid-cols-2 gap-6 my-12">
+              {strategies.map((strategy, index) => (
+                <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <CardContent className="p-6">
+                    <div className="flex items-start space-x-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl flex items-center justify-center">
+                        <strategy.icon className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-slate-900 mb-2">{strategy.title}</h3>
+                        <p className="text-gray-600">{strategy.description}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            <div className="text-lg text-gray-700 leading-relaxed space-y-6">
+              <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">
+                Step 1: AI-Powered Resume Optimization
+              </h2>
+
+              <p>
+                Your resume isn't just a document—it's your personal marketing machine. Most resumes get 
+                6 seconds of attention from recruiters and need to pass ATS filters before human eyes 
+                ever see them. Here's how to use AI to dominate both:
+              </p>
+
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">The AI Resume Optimization Prompt</h3>
+              
+              <p>Copy this exact prompt into ChatGPT and watch your resume transform:</p>
+            </div>
+
+            {/* Prompt Box */}
+            <div className="bg-slate-900 rounded-xl p-6 my-8">
+              <div className="text-green-400 text-sm font-mono leading-relaxed whitespace-pre-wrap">
+                {resumePrompt}
+              </div>
+            </div>
+
+            <div className="text-lg text-gray-700 leading-relaxed space-y-6">
+              <p>
+                <strong>Pro tip:</strong> Run this prompt for every single job application. Yes, it takes 
+                10 minutes per application, but it increases your callback rate from 2% to 15%.
+              </p>
+
+              <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">
+                Step 2: Smart Job Discovery & Matching
+              </h2>
+
+              <p>
+                Stop wasting time on generic job boards. AI can help you find the perfect opportunities 
+                in three powerful ways:
+              </p>
+
+              <div className="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-xl p-8 my-8">
+                <h3 className="text-xl font-bold text-slate-900 mb-6">The Hidden Job Market Strategy</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <strong>Use LinkedIn AI:</strong> Enable "Open to Work" and let LinkedIn's algorithm 
+                      surface you to recruiters actively searching for your skills.
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <strong>Company Research:</strong> Ask ChatGPT to analyze company news, recent funding, 
+                      and expansion plans to identify companies likely to be hiring.
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <strong>Trend Analysis:</strong> Use AI to identify emerging job titles and skills 
+                      in your industry before they become mainstream.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">
+                Step 3: AI-Enhanced Networking
+              </h2>
+
+              <p>
+                Networking accounts for 70% of job placements, but most people do it wrong. AI can help 
+                you network smarter, not harder:
+              </p>
+
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">The Perfect LinkedIn Outreach Message</h3>
+
+              <p>
+                Use this AI-generated template that has a 45% response rate (vs. 8% for generic messages):
+              </p>
+
+              <div className="bg-gray-50 rounded-xl p-6 my-8 border-l-4 border-teal-500">
+                <p className="text-gray-700 italic">
+                  "Hi [Name], I noticed your recent post about [specific topic they shared]. Your insight 
+                  about [specific detail] really resonated with me, especially since I've been working on 
+                  [related experience]. I'd love to hear more about your experience at [Company] - would 
+                  you be open to a brief 15-minute coffee chat? I promise to keep it focused and valuable for both of us."
+                </p>
+              </div>
+
+              <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">
+                Step 4: AI Interview Preparation
+              </h2>
+
+              <p>
+                Interviews are where AI can give you the biggest advantage. Here's how top performers 
+                use AI to prepare:
+              </p>
+
+              <div className="space-y-4">
+                <div className="flex items-start space-x-3">
+                  <TrendingUp className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                  <div>
+                    <strong>Company Deep Dive:</strong> Use ChatGPT to analyze the company's recent news, 
+                    competitors, challenges, and opportunities. Show up knowing more than most employees.
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <TrendingUp className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                  <div>
+                    <strong>STAR Method Stories:</strong> Use AI to help you craft compelling STAR 
+                    (Situation, Task, Action, Result) stories that showcase your achievements.
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <TrendingUp className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                  <div>
+                    <strong>Mock Interviews:</strong> Practice with AI-powered interview simulators 
+                    that adapt to your responses and provide real-time feedback.
+                  </div>
+                </div>
+              </div>
+
+              <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">
+                Essential AI Tools for Job Seekers
+              </h2>
+
+              <p>
+                Here are the specific AI tools I recommend to every job seeker:
+              </p>
+            </div>
+
+            {/* Tools Table */}
+            <div className="overflow-x-auto my-8">
+              <table className="w-full bg-white border border-gray-200 rounded-lg">
+                <thead className="bg-gray-50">
+                  <tr>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tool</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Best Use</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200">
+                  {tools.map((tool, index) => (
+                    <tr key={index} className="hover:bg-gray-50">
+                      <td className="px-6 py-4 whitespace-nowrap font-medium text-slate-900">{tool.name}</td>
+                      <td className="px-6 py-4 text-gray-700">{tool.use}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div className="text-lg text-gray-700 leading-relaxed space-y-6">
+              <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">
+                Real Success Story: Sarah's AI-Powered Career Change
+              </h2>
+
+              <p>
+                Sarah was a marketing manager who wanted to transition into data science. Here's exactly 
+                how she used AI to land a $120K data scientist role in 3 months:
+              </p>
+
+              <div className="space-y-4">
+                <div className="bg-white border-l-4 border-teal-500 p-6 rounded-r-lg shadow-sm">
+                  <strong>Week 1-2:</strong> Used ChatGPT to identify transferable skills and create a 
+                  targeted learning plan for technical skills gaps.
+                </div>
+                <div className="bg-white border-l-4 border-blue-500 p-6 rounded-r-lg shadow-sm">
+                  <strong>Week 3-6:</strong> Built a portfolio of 3 data science projects, using AI to 
+                  optimize her code and create compelling project narratives.
+                </div>
+                <div className="bg-white border-l-4 border-purple-500 p-6 rounded-r-lg shadow-sm">
+                  <strong>Week 7-10:</strong> Used AI-optimized resumes for targeted applications and 
+                  AI-generated networking messages to connect with data science leaders.
+                </div>
+                <div className="bg-white border-l-4 border-green-500 p-6 rounded-r-lg shadow-sm">
+                  <strong>Week 11-12:</strong> Prepared for interviews using AI-powered mock interviews 
+                  and company research. Received 3 offers and negotiated a 25% salary increase.
+                </div>
+              </div>
+
+              <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">
+                Common AI Job Search Mistakes to Avoid
+              </h2>
+
+              <div className="bg-red-50 border border-red-200 rounded-xl p-8 my-8">
+                <h3 className="text-xl font-bold text-red-800 mb-4">❌ Don't Do This:</h3>
+                <ul className="space-y-2 text-red-700">
+                  <li>• Using AI-generated cover letters without personalization</li>
+                  <li>• Applying to jobs without AI-optimizing your resume first</li>
+                  <li>• Ignoring soft skills when using AI for interview prep</li>
+                  <li>• Over-relying on AI without developing genuine expertise</li>
+                  <li>• Using outdated AI tools (many update monthly)</li>
+                </ul>
+              </div>
+
+              <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">
+                Your 30-Day AI Job Search Action Plan
+              </h2>
+
+              <p>
+                Ready to implement these strategies? Here's your step-by-step roadmap:
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-6 my-8">
+                <Card className="border-0 shadow-lg">
+                  <CardContent className="p-6">
+                    <h3 className="text-lg font-bold text-slate-900 mb-4">Week 1-2: Foundation</h3>
+                    <ul className="space-y-2 text-gray-700">
+                      <li>• Set up AI tools and accounts</li>
+                      <li>• Optimize LinkedIn profile with AI</li>
+                      <li>• Create master resume template</li>
+                      <li>• Research target companies</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+                <Card className="border-0 shadow-lg">
+                  <CardContent className="p-6">
+                    <h3 className="text-lg font-bold text-slate-900 mb-4">Week 3-4: Execution</h3>
+                    <ul className="space-y-2 text-gray-700">
+                      <li>• Start AI-optimized applications</li>
+                      <li>• Begin strategic networking</li>
+                      <li>• Practice AI-powered interview prep</li>
+                      <li>• Track and iterate on results</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+              </div>
+
+              <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">
+                The Future is Now
+              </h2>
+
+              <p>
+                AI isn't just changing how we work—it's revolutionizing how we find work. The 
+                professionals who master these techniques today will have a massive advantage 
+                over those who wait.
+              </p>
+
+              <p>
+                Start with one strategy from this guide. Implement it this week. Then add another 
+                the following week. Within a month, you'll be job searching like a pro while 
+                others are still stuck in 2020 tactics.
+              </p>
+
+              <p>
+                Your dream job is out there. AI just made it 10x easier to find and land it.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-r from-slate-900 to-slate-800">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold text-white mb-6">
+            Ready to Transform Your Job Search?
+          </h2>
+          <p className="text-xl text-gray-300 mb-8">
+            Get personalized coaching on implementing these AI strategies for your specific 
+            career goals and industry.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white">
+              <Target className="w-5 h-5 mr-2" />
+              Book Career Coaching Session
+            </Button>
+            <Link to={createPageUrl("Blog")}>
+              <Button variant="outline" size="lg" className="border-2 border-white text-white hover:bg-white hover:text-slate-900">
+                Read More Career Tips
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
