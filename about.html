@@ -1,0 +1,286 @@
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { 
+  GraduationCap, 
+  Award, 
+  Users, 
+  Target,
+  Heart,
+  Lightbulb,
+  Calendar,
+  CheckCircle
+} from "lucide-react";
+
+export default function About() {
+  const achievements = [
+    { icon: Users, number: "500+", label: "Students Mentored" },
+    { icon: Award, number: "5+", label: "Years Experience" },
+    { icon: GraduationCap, number: "95%", label: "Success Rate" },
+    { icon: Target, number: "50+", label: "AI Tools Mastered" }
+  ];
+
+  const values = [
+    {
+      icon: Heart,
+      title: "Personalized Learning",
+      description: "Every student is unique. I adapt my teaching style to match your learning preferences and goals."
+    },
+    {
+      icon: Lightbulb,
+      title: "Practical Focus",
+      description: "Learn by doing. We build real projects that you can showcase in your portfolio and job interviews."
+    },
+    {
+      icon: Target,
+      title: "Career-Oriented",
+      description: "Everything we learn has a clear connection to advancing your career and increasing your market value."
+    }
+  ];
+
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-teal-50 py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <Badge className="mb-6 bg-teal-100 text-teal-800 px-4 py-2 text-sm font-medium">
+                👋 Meet Your AI Mentor
+              </Badge>
+              
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-slate-900 to-slate-600 bg-clip-text text-transparent leading-tight">
+                Hi, I'm Alex Johnson
+              </h1>
+              
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                AI Engineer, Educator, and your guide to mastering the future of technology. 
+                I've helped hundreds of professionals transform their careers through practical AI skills.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" className="bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white">
+                  <Calendar className="w-5 h-5 mr-2" />
+                  Book a Session
+                </Button>
+                <Button variant="outline" size="lg" className="border-2">
+                  View My Credentials
+                </Button>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="w-80 h-80 mx-auto bg-gradient-to-br from-teal-400 to-cyan-500 rounded-full flex items-center justify-center shadow-2xl">
+                <Users className="w-32 h-32 text-white opacity-80" />
+              </div>
+              <div className="absolute -bottom-4 -right-4 bg-white rounded-xl p-4 shadow-lg">
+                <div className="text-2xl font-bold text-slate-900">5.0★</div>
+                <div className="text-sm text-gray-600">Student Rating</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Achievements */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {achievements.map((achievement, index) => (
+              <div key={index} className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                  <achievement.icon className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-3xl font-bold text-slate-900 mb-2">{achievement.number}</div>
+                <div className="text-gray-600 font-medium">{achievement.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* My Story */}
+      <section className="py-24 bg-gradient-to-br from-slate-50 to-teal-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+              My Journey into AI Education
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              From software engineer to AI specialist to passionate educator
+            </p>
+          </div>
+
+          <div className="space-y-12">
+            <Card className="border-0 shadow-lg">
+              <CardContent className="p-8">
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <GraduationCap className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-900 mb-3">The Beginning</h3>
+                    <p className="text-gray-700 leading-relaxed">
+                      My journey started as a traditional software engineer, but I quickly realized that AI was 
+                      transforming every industry. I spent countless hours learning machine learning, deep learning, 
+                      and natural language processing. What struck me most was how difficult it was to find 
+                      practical, career-focused AI education.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-0 shadow-lg">
+              <CardContent className="p-8">
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Award className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-900 mb-3">The Breakthrough</h3>
+                    <p className="text-gray-700 leading-relaxed">
+                      After landing my first AI engineering role at a Fortune 500 company, I started mentoring 
+                      colleagues who wanted to transition into AI. I discovered that most people didn't need 
+                      PhD-level theory – they needed practical skills that could immediately impact their careers. 
+                      This realization changed everything.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-0 shadow-lg">
+              <CardContent className="p-8">
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Heart className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-900 mb-3">The Mission</h3>
+                    <p className="text-gray-700 leading-relaxed">
+                      Today, I'm dedicated to democratizing AI education. My mission is simple: help ambitious 
+                      professionals gain practical AI skills that advance their careers. Whether you're looking 
+                      to transition into AI, enhance your current role, or start your own AI-powered business, 
+                      I'm here to guide you every step of the way.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+              My Teaching Philosophy
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Three core principles that guide every tutoring session
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {values.map((value, index) => (
+              <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <CardContent className="p-8 text-center">
+                  <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                    <value.icon className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-4">{value.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Credentials */}
+      <section className="py-24 bg-gradient-to-br from-slate-50 to-teal-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+              Background & Credentials
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <Card className="border-0 shadow-lg">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-bold text-slate-900 mb-6">Education</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="font-medium text-slate-900">M.S. Computer Science</p>
+                      <p className="text-gray-600">Stanford University, AI Specialization</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="font-medium text-slate-900">B.S. Software Engineering</p>
+                      <p className="text-gray-600">UC Berkeley, Magna Cum Laude</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-0 shadow-lg">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-bold text-slate-900 mb-6">Experience</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="font-medium text-slate-900">Senior AI Engineer</p>
+                      <p className="text-gray-600">Google AI, 3+ years</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="font-medium text-slate-900">Machine Learning Engineer</p>
+                      <p className="text-gray-600">Tesla Autopilot Team, 2+ years</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="font-medium text-slate-900">AI Consultant</p>
+                      <p className="text-gray-600">Fortune 500 Companies</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24 bg-gradient-to-r from-slate-900 to-slate-800">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Ready to Work Together?
+          </h2>
+          <p className="text-xl text-gray-300 mb-10 leading-relaxed">
+            Let's discuss your AI learning goals and create a personalized roadmap for your success.
+          </p>
+          
+          <Button size="lg" className="bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white px-8 py-6 text-lg shadow-xl">
+            <Calendar className="w-5 h-5 mr-2" />
+            Schedule Your First Session
+          </Button>
+        </div>
+      </section>
+    </div>
+  );
+}
